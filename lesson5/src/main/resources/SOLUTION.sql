@@ -1,7 +1,7 @@
-SELECT * FROM payment WHERE amount >= 500;
-SELECT * FROM student WHERE TIMESTAMPDIFF(YEAR, birthday, CURDATE()) > 20;
-SELECT * FROM student WHERE groupnumber = 10 AND TIMESTAMPDIFF(YEAR, birthday, CURDATE()) < 20;
-SELECT * FROM student WHERE name = 'Mike' OR groupnumber IN (4, 5, 6);
-SELECT * FROM payment WHERE payment_date >= NOW() - INTERVAL 8 MONTH;
-SELECT * FROM student WHERE name LIKE 'A%';
-SELECT * FROM student WHERE (name = 'Roxi' AND groupnumber = 4) OR (name = 'Tallie' AND groupnumber = 9);
+SELECT * FROM Payment WHERE amount >= 500;
+SELECT * FROM Student WHERE DATEADD(YEAR, -20, CURRENT_DATE) > birthday;
+SELECT * FROM Student WHERE groupnumber = 10 AND DATEADD(YEAR, -20, CURRENT_DATE) < birthday;
+SELECT * FROM Student WHERE name LIKE 'Mike%' OR groupnumber IN (4, 5, 6);
+SELECT * FROM Payment WHERE DATEADD(MONTH, -8, CURRENT_DATE) < payment_date;
+SELECT * FROM Student WHERE name LIKE 'A%';
+SELECT * FROM Student WHERE (name LIKE 'Roxi%' AND groupnumber = 4) OR (name LIKE 'Tallie%' AND groupnumber = 9);
