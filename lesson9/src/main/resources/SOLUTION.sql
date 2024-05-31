@@ -1,3 +1,3 @@
-SELECT * FROM STUDENT group by id having id in(SELECT STUDENT_ID FROM MARK WHERE AVG(MARK)>8);
+SELECT student.* FROM STUDENT inner join mark on student.id=mark.student_id group by student.id having avg(mark)>8;
 SELECT student.ID, student.NAME FROM STUDENT INNER JOIN MARK ON STUDENT.ID=MARK.STUDENT_ID GROUP BY STUDENT.ID HAVING MIN(MARK)>7;
 SELECT s.id, s.name FROM student AS s JOIN payment as p ON s.id = p.student_id WHERE EXTRACT(YEAR FROM p.payment_date) = 2019 GROUP BY (s.id, s.name) HAVING COUNT(*) > 2;
